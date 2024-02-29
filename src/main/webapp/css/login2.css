@@ -1,0 +1,285 @@
+/*Login form css*/
+
+.login-container
+{
+   height:100%;
+   margin: auto;
+   width: 40%;
+   padding: 10px;
+   overflow: hidden;
+
+}
+.container
+{background-color: rgba(25, 131, 230, 0.567);
+ 
+    height:100%;
+    width:100%;
+    overflow: hidden;
+
+}
+.wrap-login-form
+{
+    position: absolute;
+   
+    top:100px;
+    height:85%;
+    width:39%;
+    overflow: hidden;
+
+}
+.login-title {
+    font-family: Montserrat-ExtraBold;
+    font-size: 24px;
+    color: #fff;
+    line-height: 1.2;
+    text-align: center;
+    width: 100%;
+    display: block;
+    
+    padding: 35px 0px 35px 10px;
+
+}
+
+.login-avtar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.login-avtar img {
+    width: 100%
+}
+
+.validation-alert {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    padding-left: 55px;
+    padding-bottom:20px;
+
+}
+
+.input00 {
+    font-family: Montserrat-Bold;
+    font-size: 20px;
+    line-height: 1.2;
+    color: #333;
+    display: block;
+    width: 80%;
+    background: #fff;
+    height: 50px;
+    border-radius: 25px;
+    padding: 0 30px 0 53px;
+    border:none;
+
+}
+
+.focus-input{
+    display: block;
+    position: absolute;
+    border-radius: 25px;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0;
+    color: rgba(0,91,234,.6)
+}
+.container-login-button {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    padding-left: 55px;
+    padding-bottom:20px;
+}
+
+.login-form-button {
+    font-family: Montserrat-Bold;
+    font-size: 20px;
+    line-height: 1.2;
+    color: #fcfbfb;
+    display: block;
+    width: 80%;
+    background-color: #333;
+    height: 50px;
+    border-radius: 25px;
+    padding: 0 30px 0 53px;
+    border: none;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  
+}
+.Text-center-forgot
+{
+    
+    font-size: 20px;
+    padding-left: 40%;
+    padding-bottom: 10%;
+}
+.forgot-text
+{
+    color:white;
+
+}
+a
+{
+    text-decoration: none;
+}
+.text-account
+{
+    font-size: 20px;
+    padding-left: 42%;
+
+     color:white;
+}
+.button1:hover  {
+    background:-webkit-linear-gradient(left,#005bea,#00c6fb);
+    color:white;
+    border: none;
+}
+/*Login form css end*/
+/*Signup Form css start*/
+.Signup-container
+{
+   height:100%;
+   margin: auto;
+   width: 40%;
+   padding: 10px;
+   overflow: hidden;
+
+}
+.Sg-container
+{background-color: rgba(25, 131, 230, 0.567);
+ margin:0px;
+    height:auto;
+    width:100%;
+    overflow: hidden;
+
+}
+.wrap-Signup-form
+{
+    position: absolute;
+   
+    top:60px;
+    height:90%;
+    width:39%;
+    overflow: hidden;
+
+}
+.Signup-title {
+    font-family: Montserrat-ExtraBold;
+    font-size: 24px;
+    color: #fff;
+    line-height: 1.2;
+    text-align: center;
+    width: 100%;
+    display: block;
+    
+    padding: 35px 0px 35px 10px;
+
+}
+
+.Avtar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.Avtar img {
+    width: 100%
+}
+.validation-alert {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    padding-left: 55px;
+    padding-bottom:20px;
+
+}
+
+.input00 {
+    font-family: Montserrat-Bold;
+    font-size: 20px;
+    line-height: 1.2;
+    color: #333;
+    display: block;
+    width: 80%;
+    background: #fff;
+    height: 50px;
+    border-radius: 25px;
+    padding: 0 30px 0 53px;
+    border:none;
+
+}
+
+.focus-input{
+    display: block;
+    position: absolute;
+    border-radius: 25px;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0;
+    color: rgba(0,91,234,.6)
+}
+.container-Signup-button {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    padding-left: 55px;
+    padding-bottom:20px;
+}
+
+.Signup-form-button {
+    font-family: Montserrat-Bold;
+    font-size: 20px;
+    line-height: 1.2;
+    color: #fcfbfb;
+    display: block;
+    width: 80%;
+    background-color: #333;
+    height: 50px;
+    border-radius: 25px;
+    padding: 0 30px 0 53px;
+    border: none;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  
+}
+.Text-center-forgot
+{
+    
+    font-size: 20px;
+    padding-left: 40%;
+    padding-bottom: 10%;
+}
+.forgot-text
+{
+    color:white;
+
+}
+a
+{
+    text-decoration: none;
+}
+.text-account
+{
+    font-size: 20px;
+    padding-left: 42%;
+
+     color:white;
+}
+.button1:hover  {
+    background:-webkit-linear-gradient(left,#005bea,#00c6fb);
+    color:white;
+    border: none;
+}
+/*Signup form css end*/
+
