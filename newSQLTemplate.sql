@@ -1,21 +1,9 @@
-/**
- * Author:  TANMOY DAS
- * Created: Apr 27, 2022
- */
-
-/*
-
-//For Tomacat Error
-netstat -aon | find "8080"
-taskkill /f /pid 3443
-
-*/
 
 
 mysql -h localhost -u root
 
-Create Database AIRRESERVE;
-use AIRRESERVE;
+Create Database BCA2021;
+use BCA2021;
 
 create Table Admin_log(admin_name VARCHAR(10) Primary Key, admin_pass VARCHAR(10));
 Insert into Admin_log(admin_name , admin_pass)
