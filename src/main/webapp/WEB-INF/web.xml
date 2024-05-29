@@ -184,6 +184,21 @@
         <servlet-name>search_coupon_all</servlet-name>
          <url-pattern>/search_coupon_all</url-pattern>
     </servlet-mapping>
+    
+    
+    
+    <!-- search Coupon user -->
+    
+        <servlet>
+        <servlet-name>search_coupon_all_u</servlet-name>
+        <servlet-class>Servlet.search_coupon_all_u</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>search_coupon_all_u</servlet-name>
+         <url-pattern>/search_coupon_all_u</url-pattern>
+    </servlet-mapping>
+ 
+    
  
 </web-app>
   

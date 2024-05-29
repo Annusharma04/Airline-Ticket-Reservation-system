@@ -96,6 +96,8 @@
           <li><a   href="user_login_pass.jsp">Home</a></li>
           <li><a  href="availability_from_user_booking.jsp">Check Availability</a></li>
           <li><a class="active" href="booking.jsp">Bookings</a></li>
+                    <li><a href="coupon_search_u.jsp">Coupon</a></li>
+          
           <li><a href="Cancellation.jsp">Cancellation</a></li>          
            <li><a href="user_about.jsp">About</a></li>
           <li><a href="contact_u.jsp">Contact</a></li>

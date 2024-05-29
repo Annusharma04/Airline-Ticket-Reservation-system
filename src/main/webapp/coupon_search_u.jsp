@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<% String pagename="Cancellation_failed.jsp"; session.setAttribute("pagename", pagename); %>
+    <% String pagename="coupon_search_u.jsp"; session.setAttribute("pagename", pagename); %>
     
 <!DOCTYPE html>
 <html lang="en">
@@ -23,6 +23,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
+
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
@@ -34,28 +35,37 @@
 
   <!-- Template Main CSS File -->
   <link href="style.css" rel="stylesheet">
-  
-  <style>
-  .custom-page-header {
-	    margin-top: 60px; /* Adjust the value to increase or decrease the distance from the top */
-	}
-	  
-	  .custom-page-header h1{
-	 font-weight: bold;}  
- .color-text {
-        color:#37423b /* Your desired color */;
-        font-weight: bold;
+ <style>
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
 
-}
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
 
-  .color-text h6, span{
-        color:#5f77cf  /* Your desired color */;
-        font-weight: bold;
+        .dropdown-content a {
+            padding: 12px 16px;
+            display: block;
+            text-decoration: none;
+            color: #333;
+        }
 
-}
-  </style>
-  
-  
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+ 
 </head>
 
 <body>
@@ -67,41 +77,42 @@
       
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a   href="user_login_pass.jsp">Home</a></li>
-          <li><a  href="availability_from_user_booking.jsp">Check Availability</a></li>
-          <li><a href="booking.jsp">Bookings</a></li>
-                    <li><a href="coupon_search_u.jsp">Coupon</a></li>
+          <li><a  class="active" href="index.jsp">Home</a></li>
+          <li><a  href="availability.jsp">Check Availability</a></li>
+          <li><a href="booking_error_msg.jsp">Bookings</a></li>
+          <li><a href="coupon_search_u.jsp">Coupon</a></li>
           
-          <li><a class="active" href="Cancellation.jsp">Cancellation</a></li>          
-           <li><a href="user_about.jsp">About</a></li>
-          <li><a href="contact_u.jsp">Contact</a></li>
+          
+                 <div class="dropdown">
+          
+         				 <li><a href="#">Login/Register</a></li>
+         				 <div class="dropdown-content">
+            <a href="Login.jsp">Login</a>
+            <a href="Register.jsp">Register</a>
+        </div>
+    </div>
+          <li><a href="about.jsp">About</a></li>
+          <li><a href="contact.jsp">Contact</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
       
       
-    						<a href="index.jsp" class="get-started-btn">LogOut As<small> 
-                                    <%  String U_name=(String)session.getAttribute("username");  
-                                        out.print(U_name);  
-                                    %>  
-                            </small><i class="fa fa-arrow-right ms-3"></i></a>
+    <a href="adminlogin.jsp" class="get-started-btn"> Admin Panel<i class="fa fa-arrow-right ms-3"></i></a>
 			 
     
     </div>
   </header><!-- End Header -->
-
-
-
-
-<!-- Page Header Start -->
-        <div class="container-fluid page-header mb-2 p-0 custom-page-header" style="   background:linear-gradient(rgba(0, 0, 0, 0.436),rgba(0, 0, 0, 0.09)),url(assets/img/aeroplane1.jpg) top center;">         
-            <div class="container-fluid page-header-inner py-5" data-aos="zoom-in" data-aos-delay="100">
-               <div class="container text-center pb-5">
-                    <h1 class="display-3 text-white mb-3 animated slideInDown">Cancellation</h1>
+  
+  <!-- Page Header Start -->
+        <div class="container-fluid page-header mb-5 p-0 custom-page-header" style="   background:linear-gradient(rgba(0, 0, 0, 0.436),rgba(0, 0, 0, 0.09)),url(assets/img/aeroplane1.jpg) top center;">         
+            <div class="container-fluid page-header-inner py-5"  data-aos="zoom-in" data-aos-delay="100">
+                <div class="container text-center pb-5">
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">Search Coupon</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center text-uppercase">
-                            <li class="breadcrumb-item"><a href="user_login_pass.jsp">Home</a></li>
-                            <li class="breadcrumb-item text-white active" aria-current="page">Cancellation</li>
+                            <li class="breadcrumb-item"><a href="admin_login_pass.jsp">Home</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">Search Coupon</li>
                         </ol>
                     </nav>
                 </div>
@@ -110,65 +121,50 @@
         <!-- Page Header End -->
 
 
-       
+        <!-- Searching Start -->
         <div class="container-xxl py-5">
-            <div class="container color-text" data-aos="zoom-in" data-aos-delay="100">
-                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <h6 class="section-title text-center  text-uppercase">Tickets Cancellation</h6>
-                    <h1 class="mb-5">Cancel A <span class=" text-uppercase">Plane Ticket</span></h1>
-                </div>
-                <div class="container newsletter mt-5 wow fadeIn" data-wow-delay="0.1s">
-                    <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="col-lg-10 p-1">
-                            <div class="text-center p-1 mb-5">
-                                <h4>Sorry But The PNR NUMBER <%  String PNR=(String)session.getAttribute("PNR"); out.print(PNR);%> IS IN-CORRECT</h4>
-                                <h4>Or The Record Has Been Deleted Already</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="container">
                 <div class="row g-5">
-                    <div class="col-lg-6" data-aos="fade-left" data-aos-delay="100">
-                        <div class="row g-3">
-                            <div class="col-6 text-end">
-                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.1s" src="assets/img/about-1.png" style="margin-top: 25%;">
-                            </div>
-                            <div class="col-6 text-start">
-                                <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.3s" src="assets/img/about-2.png">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
+                    
+                    <div class="col-lg-12" data-aos="fade-left" data-aos-delay="100">
                         <div class="wow fadeInUp" data-wow-delay="0.2s">
-                            
-                            <form  method="post" action="Cancellation">
+                            <form method="post" action="search_coupon_all_u">
                                 <div class="row g-3">
-                                    <div class="col-md-8">
-                                        <div class="form-floating">
-                                            <input type="text" class="form-control" id="PNR" placeholder="Provide Your PNR Number" name="PNR">
-                                            <label for="PNR">Provide Your PNR Number</label>
-                                        </div>
+                                    <div class="col-md-2">
+                                        
                                     </div>
-                                    <div class="col-4">
-                                        <div class="form-floating">
-                                            <button class="btn btn-primary w-100 py-3" type="submit">Cancel Now</button>
-                                        </div>
+                                    <div class="col-md-4">
+                                        <h3>Show All Available Coupons</h3>
                                     </div>
-                                    
+                                    <div class="col-md-4">
+                                        <button class="btn btn-primary w-100 py-3" type="submit">Search</button>
+                                    </div>
+                                    <div class="col-md-2">
+                                        
+                                    </div>
                                 </div>
                             </form>
                         </div>
-                       </div>
+                    </div>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                   
+                            </form>
+                        </div>
                     </div>
                     
                 </div>
             </div>
         </div>
-        
 
-
-
-<!-- ======= Footer ======= -->
+  
+  
+ <!-- ======= Footer ======= -->
   <footer id="footer">
 
     <div class="footer-top">

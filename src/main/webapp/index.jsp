@@ -80,6 +80,7 @@
           <li><a  class="active" href="index.jsp">Home</a></li>
           <li><a  href="availability.jsp">Check Availability</a></li>
           <li><a href="booking_error_msg.jsp">Bookings</a></li>
+          <li><a href="coupon_search_u.jsp">Coupon</a></li>
           
           
                  <div class="dropdown">
