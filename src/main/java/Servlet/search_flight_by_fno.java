@@ -13,16 +13,10 @@ public class search_flight_by_fno extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        Connection conn = null;
-        String url = "jdbc:mysql://localhost:3306/";
-        String dbName = "AIRRESERVE";
-        String driver = "com.mysql.jdbc.Driver";
-        String userName = "root";
-        String password = "12345";
+        Connect connect = new Connect();
+        Connection conn = connect.getConnection();
         Statement st=null;
-        try {
-            Class.forName(driver).newInstance();
-            conn = DriverManager.getConnection(url + dbName, userName, password);
+        try {          
             System.out.println("connected!.....");
             String flight_no = request.getParameter("flight_no");
             if(flight_no == null || flight_no.equals("")){

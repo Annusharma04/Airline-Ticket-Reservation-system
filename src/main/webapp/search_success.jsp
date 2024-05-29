@@ -4,6 +4,8 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
+<%@page import="Servlet.Connect"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <% String pagename="search_success.jsp"; session.setAttribute("pagename", pagename); %>
@@ -181,20 +183,9 @@
         <h2 align="center" data-aos="fade-left" data-aos-delay="100"><font><strong>Showing Search Results</strong></font></h2>
         <div class="scroll" data-aos="zoom-in" data-aos-delay="100">
         <%
-            String flight_id = request.getParameter("flight_id");
-            String driverName = "com.mysql.jdbc.Driver";
-            String connectionUrl = "jdbc:mysql://localhost:3306/";
-            String dbName = "AIRRESERVE";
-            String userId = "root";
-            String password = "12345";
-
-            try {
-                Class.forName(driverName);
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
-
-                Connection connection = null;
+                String flight_id = request.getParameter("flight_id");
+                Connect connect = new Connect();
+ 	            Connection connection = connect.getConnection();
                 Statement statement = null;
                 ResultSet resultSet = null;
         %>
@@ -227,7 +218,6 @@
                 </tr>
                 <%
                 try{ 
-                    connection = DriverManager.getConnection(connectionUrl+dbName, userId, password);
                     statement=connection.createStatement();
                     String sql ="SELECT * FROM flight_details";
 

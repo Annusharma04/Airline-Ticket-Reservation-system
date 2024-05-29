@@ -5,6 +5,7 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
+<%@ page import="Servlet.Connect" %>
    
 <!DOCTYPE html>
 <html lang="en">
@@ -177,27 +178,13 @@
                 <td><b>pnr no.</b></td>
                 </tr>
               <%
-              
-              
-              
-              String driverName = "com.mysql.jdbc.Driver";
-              String connectionUrl = "jdbc:mysql://localhost:3306/";
-              String dbName = "AIRRESERVE";
-              String userId = "root";
-              String password = "12345";
 
-              try {
-                  Class.forName(driverName);
-                  } catch (ClassNotFoundException e) {
-                      e.printStackTrace();
-                  }
-
-                  Connection connection = null;
-                  Statement statement = null;
-                  ResultSet resultSet = null;
+                 Statement statement=null;
+                 ResultSet resultSet=null;
 
               try{ 
-                  connection = DriverManager.getConnection(connectionUrl+dbName, userId, password);
+            	  Connect connect = new Connect();
+            	  Connection connection = connect.getConnection();
                   statement=connection.createStatement();
                   String sql ="SELECT * FROM booking_details";
 

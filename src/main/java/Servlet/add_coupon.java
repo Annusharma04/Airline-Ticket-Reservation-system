@@ -1,5 +1,6 @@
 package Servlet;
 
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -27,16 +28,11 @@ public class add_coupon extends HttpServlet {
         processRequest(request, response);
         System.out.println("-------------------------------INSIDE ADD_COUPON ----------------------");
         PrintWriter out = response.getWriter();
-        Connection conn = null;
-        String url = "jdbc:mysql://localhost:3306/";
-        String dbName = "AIRRESERVE";
-        String driver = "com.mysql.jdbc.Driver";
-        String userName = "root";
-        String password = "12345";
+        Connect connect = new Connect();
+        Connection conn = connect.getConnection();
         try {
             int count=0;
-            Class.forName(driver).newInstance();
-            conn = DriverManager.getConnection(url + dbName, userName, password);
+      
             System.out.println("connected!.....");
             String cname = request.getParameter("cname");
             String discoutnpercentage = request.getParameter("discoutnpercentage");
@@ -61,7 +57,7 @@ public class add_coupon extends HttpServlet {
                 System.out.print("Record Inserted");
             }
         }
-        catch(IOException | ClassNotFoundException | IllegalAccessException | InstantiationException | SQLException | ServletException e){
+        catch(IOException | SQLException | ServletException e){
             System.out.print(e);
         }  
         System.out.println("-------------------------------INSIDE ADD_COUPON ----------------------");

@@ -26,16 +26,11 @@ public class search_flight_by_id_u extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         PrintWriter out = response.getWriter();
-        Connection conn = null;
-        String url = "jdbc:mysql://localhost:3306/";
-        String dbName = "AIRRESERVE";
-        String driver = "com.mysql.jdbc.Driver";
-        String userName = "root";
-        String password = "12345";
+        Connect connect = new Connect();
+        Connection conn = connect.getConnection();
         Statement st=null;
         try {
-            Class.forName(driver).newInstance();
-            conn = DriverManager.getConnection(url + dbName, userName, password);
+           
             System.out.println("connected!.....");
             String flight_id = request.getParameter("flight_id");
             

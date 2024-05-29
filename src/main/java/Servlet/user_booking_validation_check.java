@@ -37,12 +37,8 @@ public class user_booking_validation_check extends HttpServlet {
         processRequest(request, response);
         System.out.println("-------------------------------INSIDE USER_BOOKING_VALIDATION_CHECK ----------------------");
         PrintWriter out = response.getWriter();
-        Connection con = null;
-        String url = "jdbc:mysql://localhost:3306/";
-        String dbName = "AIRRESERVE";
-        String driver = "com.mysql.jdbc.Driver";
-        String userName = "root";
-        String password = "12345";
+        Connect connect = new Connect();
+        Connection con = connect.getConnection();
         Statement st=null;    
         
         int min = 11069;      
@@ -82,8 +78,7 @@ public class user_booking_validation_check extends HttpServlet {
         
         try    
         {    
-            Class.forName(driver).newInstance();
-            con = DriverManager.getConnection(url + dbName, userName, password);
+           
             System.out.println("connected!.....");   
                
             if(null != ticket_type)switch (ticket_type) {

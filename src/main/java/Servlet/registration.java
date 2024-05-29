@@ -28,16 +28,12 @@ public class registration extends HttpServlet {
         processRequest(request, response);
         System.out.println("-------------------------------INSIDE REGISTRATION ----------------------");
         PrintWriter out = response.getWriter();
-        Connection conn = null;
-        String url = "jdbc:mysql://localhost:3306/";
-        String dbName = "AIRRESERVE";
-        String driver = "com.mysql.jdbc.Driver";
-        String userName = "root";
-        String password1 = "12345";
+     
+        Connect connect = new Connect();
+        Connection conn = connect.getConnection();
         try {
             int count=0;
-            Class.forName(driver).newInstance();
-            conn = DriverManager.getConnection(url + dbName, userName, password1);
+           
             System.out.println("connected!.....");
             String fullname = request.getParameter("fullname");
             String username = request.getParameter("username");
@@ -76,7 +72,7 @@ public class registration extends HttpServlet {
                 System.out.print("Record Inserted");
             }
         }
-        catch(IOException | ClassNotFoundException | IllegalAccessException | InstantiationException | SQLException | ServletException e){
+        catch(IOException | SQLException | ServletException e){
             System.out.print(e);
         }  
         System.out.println("-------------------------------INSIDE REGISTRATION ----------------------");

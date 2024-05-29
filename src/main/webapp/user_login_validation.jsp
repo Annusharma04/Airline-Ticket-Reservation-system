@@ -1,10 +1,12 @@
 <%@ page import ="java.sql.*" %>
+<%@ page import ="Servlet.Connect" %>
+
 <%
     try{
         String username = request.getParameter("username");   
         String password = request.getParameter("password");
-        Class.forName("com.mysql.jdbc.Driver");  // MySQL database connection
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/AIRRESERVE", "root","12345");
+        Connect connect = new Connect();
+ 	     Connection conn = connect.getConnection();
         PreparedStatement pst = conn.prepareStatement("Select username,password from user_details where username=? and password=?");
         pst.setString(1, username);
         pst.setString(2, password);

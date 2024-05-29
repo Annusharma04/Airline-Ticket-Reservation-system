@@ -35,12 +35,8 @@ public class user_booking_final_check extends HttpServlet {
         processRequest(request, response);
         System.out.println("-------------------------------INSIDE USER_BOOKING_FINAL_CHECK ----------------------");
         PrintWriter out = response.getWriter();
-        Connection con = null;
-        String url = "jdbc:mysql://localhost:3306/";
-        String dbName = "AIRRESERVE";
-        String driver = "com.mysql.jdbc.Driver";
-        String userName = "root";
-        String password = "12345";
+        Connect connect = new Connect();
+        Connection conn = connect.getConnection();
         Statement st=null;
         
         String address=request.getParameter("address");    
@@ -56,13 +52,12 @@ public class user_booking_final_check extends HttpServlet {
         System.out.println(coupon);
         try    
         {    
-            Class.forName(driver).newInstance();
-            con = DriverManager.getConnection(url + dbName, userName, password);
+           
             System.out.println("connected!.....");   
                
                 int fair1=0;
                 String fair_q = "SELECT fair FROM payment_details WHERE PNR = ? ";
-                PreparedStatement pstmt_fs=con.prepareStatement(fair_q);
+                PreparedStatement pstmt_fs=conn.prepareStatement(fair_q);
                 pstmt_fs.setString(1,PNR);
                 ResultSet ff = pstmt_fs.executeQuery();
                     
@@ -72,7 +67,7 @@ public class user_booking_final_check extends HttpServlet {
                 
                 int dis = 0;
                 String dicountq = "SELECT discoutnpercentage FROM coupon_table WHERE cname = ?";
-                PreparedStatement psds=con.prepareStatement(dicountq);
+                PreparedStatement psds=conn.prepareStatement(dicountq);
                 psds.setString(1,coupon);
                 ResultSet ds = psds.executeQuery();
                     
@@ -96,7 +91,7 @@ public class user_booking_final_check extends HttpServlet {
                 
                 
                 String update = "UPDATE payment_details SET address = ?, payment_gateway = ?, payment_id = ?, coupon = ?, discount = ?, actual_fair= ? WHERE PNR= ?";
-                    PreparedStatement pst=con.prepareStatement(update);
+                    PreparedStatement pst=conn.prepareStatement(update);
                     pst.setString(1,address);
                     pst.setString(2,payment_type);
                     pst.setString(3,upino);

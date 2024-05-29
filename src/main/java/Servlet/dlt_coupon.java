@@ -27,16 +27,11 @@ public class dlt_coupon extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         PrintWriter out = response.getWriter();
-        Connection conn = null;
-        String url = "jdbc:mysql://localhost:3306/";
-        String dbName = "AIRRESERVE";
-        String driver = "com.mysql.jdbc.Driver";
-        String userName = "root";
-        String password = "12345";
+        Connect connect = new Connect();
+        Connection conn = connect.getConnection();
         try {
             int count=0;
-            Class.forName(driver).newInstance();
-            conn = DriverManager.getConnection(url + dbName, userName, password);
+            
             System.out.println("connected!.....");
             String cname = request.getParameter("cname");
             String discoutnpercentage = request.getParameter("discoutnpercentage");
@@ -78,7 +73,7 @@ public class dlt_coupon extends HttpServlet {
             }
                 
         }
-        catch(ClassNotFoundException | IllegalAccessException | InstantiationException | SQLException  e){
+        catch( SQLException  e){
             System.out.print(e);
         }       
     }
